@@ -30,8 +30,7 @@ class ProductController extends Controller
 
         if(!empty($result)){
             app(StatisticController::class)->store($result,$keyword);
-//            StatisticController()->store($result,$keyword);
-//            return response()->json($result);
+          return response()->json($result);
         }else{
             return response()->json(['response'=>'Sin resultados']);
         }
