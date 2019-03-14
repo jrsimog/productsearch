@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Product;
 
-class ProductController extends Controller
+use App\Statistics;
+class StatisticController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,29 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $post = Product::all();
-        return response()->json($post);
+        //
+
 
     }
-
-    public function search(Request $request)
-    {
-
-        $keyword = $request->keyword;
-
-        $result = Product::where('tags', 'like', '%' .$keyword . '%')
-            ->orWhere('title', 'like', '%' . $keyword . '%')->paginate(50);
-
-        if(!empty($result)){
-            app(StatisticController::class)->store($result,$keyword);
-//            StatisticController()->store($result,$keyword);
-//            return response()->json($result);
-        }else{
-            return response()->json(['response'=>'Sin resultados']);
-        }
-
-    }
-
 
     /**
      * Store a newly created resource in storage.
@@ -45,9 +26,17 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($result, $keyword)
     {
-        //
+        if(strlen($keyword) > 2){
+            foreach ($result as $row) {
+                $statics = new Statistics();
+                $statics->word = $keyword;
+                $statics->product_id = $row->id;
+                $statics->save();
+            }
+            return $statics;
+        }
     }
 
     /**
