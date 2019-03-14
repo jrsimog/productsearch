@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Buscador de productos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+
+
+
+
+        <div class="page-header">
+            <h1>Buscador de Productos</h1>
+            <p class="lead">Buscador de prdocutos</p>
+
+            <form>
+                <div class="row">
+                    <div>
+                        <div class="input-group">
+                            <input onkeyup="validateTimer(this.value)" type="text" class="form-control" placeholder="Buscar" id="txtSearch" />
+                            <div class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="col-md-12" >
+                
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Termino</th>
+                            <th>Precio</th>
+                            <th>Imagen</th>
+                            <th>Vendidos</th>
+                            <th>Tags</th>
+                        </tr>
+                    </thead>
+                    <div class="preloader"></div>
+                    <tbody id="content-datatable">
+                            
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                            <td>mary@example.com</td>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                            <td>mary@example.com</td>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+    </div> <!-- /container -->
+
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
